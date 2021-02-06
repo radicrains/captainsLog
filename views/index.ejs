@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <nav>
+            <a href="/logs/new">Create a New Log</a>
+        </nav>
+        <h1>Logs index page</h1>
+        <ul>
+            <% for(let i = 0; i < logs.length; i++){ %>
+                <li>
+                    <a href="/logs/<%=logs[i].id; %>"><%=logs[i].title; %>
+                    <!--  ADD DELETE FORM HERE-->
+                    <form action="/logs/<%=logs[i].id; %>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE"/>
+                    </form>
+                    <!-- EDIT LINK-->
+                    <a href="/logs/<%=logs[i].id; %>/edit">Edit</a>
+                </li>
+            <% } %>
+        </ul>
+    </body>
+</html>
